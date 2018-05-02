@@ -41,5 +41,9 @@ def load_display(rows,columns):
         print_there(i,1,"#")
         print_there(i,int(columns),"#")
 
+    for i in range(10):
+        i = i + 1
+        print_there(i + 1, 2,str(i) + ":" + Todos[i])
+
 load()
 load_display(rows,columns)
