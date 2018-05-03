@@ -16,11 +16,11 @@ Todos = {
 }
 
 commands = {
-    1:"Add",
+    1:"Edit",
 }
 
-commadn_lenght = {
-    1:"3",
+command_lenght = {
+    1:"4",
 }
 
 Text_box = {
@@ -80,17 +80,29 @@ def load_display(rows,columns):
     for i in range(10):
         i = i + 1
         print_text(i + 1, 2,str(i) + ":" + Todos[i])
-    
+
     cycle_text(Text_box)
     print_text(int(rows)-1,1,Text_box[2])
 
     #for i in range(int(rows)-13):
         #i = i + 1
         #print_text(int(rows)-2,2,Text_box[i])
+
+def save_file(Number,text):
+    file = open("Todo's/" + str(Number) + ".txt", "w")
+    file.write(text)
+    file.close()
+
 while True:
     load()
     load_display(rows,columns)
     Command = input(":")
 
-    if Command[:int(commadn_lenght[1])] == commands[1]:
-        Text_box[1] = "Added"
+    if Command[:int(command_lenght[1])] == commands[1]:
+        Todo_number = Command[5:]
+        print("What do you to add to Todo's?")
+        Text_box[1] = "Enter what you need Todo"
+        load_display(rows,columns)
+        Text = input(":")
+        save_file(Todo_number,Text)
+        Text_box[1] = "Changed " + str(Todo_number) +" "+ Text
