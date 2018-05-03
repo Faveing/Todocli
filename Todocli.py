@@ -17,10 +17,12 @@ Todos = {
 
 commands = {
     1:"Edit",
+    2:"Quit"
 }
 
 command_lenght = {
     1:"4",
+    2:"4"
 }
 
 Text_box = {
@@ -106,3 +108,5 @@ while True:
         Text = input(":")
         save_file(Todo_number,Text)
         Text_box[1] = "Changed " + str(Todo_number) +" "+ Text
+    elif Command[:int(command_lenght[2])] == commands[2]:
+        break
